@@ -1,0 +1,479 @@
+#1.Write a program in Python to find the addition & average of three float numbers.
+def calculate_addition_and_average(num1, num2, num3):
+    addition = num1 + num2 + num3
+    average = addition / 3
+    return addition, average
+try:
+    num1 = float(input("Enter the first float number: "))
+    num2 = float(input("Enter the second float number: "))
+    num3 = float(input("Enter the third float number: "))
+    
+    addition, average = calculate_addition_and_average(num1, num2, num3)
+    print(f"The addition of the three numbers is: {addition}")
+    print(f"The average of the three numbers is: {average}")
+except ValueError:
+    print("Please enter valid float numbers.")
+
+#2.Write a program in Python to find the volume of a sphere with radius  6cm.
+import math
+radius = 6
+volume = (4/3) * math.pi * (radius**3)
+print(f"The volume of the sphere with radius {radius} cm is {volume:.2f} cubic cm.")
+
+#3. Write a program in Python to find the area of a circle.
+import math
+def calculate_circle_area(radius):
+    return math.pi * radius ** 2
+def main():
+    try:
+        radius = float(input("Enter the radius of the circle: "))
+        if radius < 0:
+            print("Radius cannot be negative.")
+        else:
+            area = calculate_circle_area(radius)
+            print(f"The area of the circle with radius {radius} is {area:.2f}")
+    except ValueError:
+        print("Invalid input. Please enter a numeric value.")
+if __name__ == "__main__":
+    main()
+
+#4. Write a program in Python to compute simple Interest.
+def calculate_simple_interest(principal, rate, time):
+    return (principal * rate * time) / 100
+def main():
+    try:
+        principal = float(input("Enter the principal amount: "))
+        rate = float(input("Enter the annual interest rate (in %): "))
+        time = float(input("Enter the time (in years): "))
+        interest = calculate_simple_interest(principal, rate, time)
+        print(f"The simple interest is: ${interest:.2f}")
+    except ValueError:
+        print("Invalid input. Please enter numeric values.")
+if __name__ == "__main__":
+    main()
+
+#5. Write a program in Python to swap two numbers without using third variable
+    a = 5
+b = 10
+a = a + b  
+b = a - b  
+a = a - b  
+print("After swapping: a =", a, ", b =", b)
+
+#6.Write a program in Python to convert any temperature from Celcius to Fahrenheit
+def celsius_to_fahrenheit(celsius):
+    fahrenheit = (celsius * 9/5) + 32
+    return fahrenheit
+celsius_temp = float(input("Enter temperature in Celsius: "))
+fahrenheit_temp = celsius_to_fahrenheit(celsius_temp)
+print(f"{celsius_temp}°C is equal to {fahrenheit_temp}°F")
+
+#7.Write a program in Python to convert a given number of days into days, month, year and week.
+def convert_days(total_days):
+    days_in_year = 365
+    days_in_month = 30
+    days_in_week = 7
+    years = total_days // days_in_year
+    remaining_days = total_days % days_in_year
+    months = remaining_days // days_in_month
+    remaining_days = remaining_days % days_in_month
+    weeks = remaining_days // days_in_week
+    days = remaining_days % days_in_week
+    return years, months, weeks, days
+input_days = int(input("Enter the number of days: "))
+years, months, weeks, days = convert_days(input_days)
+print(f"{input_days} days is approximately {years} years, {months} months, {weeks} weeks, and {days} days.")
+
+#8.Write a Python Program to find the gravitational force acting between two objects.
+#[G=N*(m1*m2)/d^2]
+def calculate_gravitational_force(m1, m2, d):
+    G = 6.67430e-11
+    F = G * (m1 * m2) / (d ** 2)
+    return F
+mass1 = float(input("Enter the mass of the first object (in kg): "))
+mass2 = float(input("Enter the mass of the second object (in kg): "))
+distance = float(input("Enter the distance between the objects (in meters): "))
+force = calculate_gravitational_force(mass1, mass2, distance)
+print(f"The gravitational force between the objects is {force} N")
+
+#9.Write a program in Python to find given no is Even or Odd.
+def check_even_or_odd(number):
+    if number % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
+number = int(input("Enter a number: "))
+result = check_even_or_odd(number)
+print(f"The number {number} is {result}.")
+
+#10.Take input from user if it is greater than 15 print two times of difference if it’s less than 15 print four times of difference
+def calculate_difference(num):
+    if num > 15:
+        difference = num - 15
+        return 2 * difference
+    else:
+        difference = 15 - num
+        return 4 * difference
+number = float(input("Enter a number: "))
+result = calculate_difference(number)
+print(f"The calculated value is: {result}")
+
+#11.Write a program in Python to find largest among three numbers.
+def find_largest(num1, num2, num3):
+    if num1 >= num2 and num1 >= num3:
+        return num1
+    elif num2 >= num1 and num2 >= num3:
+        return num2
+    else:
+        return num3
+number1 = float(input("Enter the first number: "))
+number2 = float(input("Enter the second number: "))
+number3 = float(input("Enter the third number: "))
+largest = find_largest(number1, number2, number3)
+print(f"The largest number among {number1}, {number2}, and {number3} is {largest}.")
+
+#12.Write a program in Python to check a triangle is equilateral,scalene or isosclees..
+def classify_triangle(side1, side2, side3):
+    if side1 == side2 == side3:
+        return "Equilateral"
+    elif side1 == side2 or side1 == side3 or side2 == side3:
+        return "Isosceles"
+    else:
+        return "Scalene"
+side1 = float(input("Enter the length of the first side: "))
+side2 = float(input("Enter the length of the second side: "))
+side3 = float(input("Enter the length of the third side: "))
+if side1 <= 0 or side2 <= 0 or side3 <= 0:
+    print("The lengths of the sides must be positive numbers.")
+elif side1 + side2 <= side3 or side1 + side3 <= side2 or side2 + side3 <= side1:
+    print("The lengths do not form a valid triangle.")
+else:
+    triangle_type = classify_triangle(side1, side2, side3)
+    print(f"The triangle is {triangle_type}.")
+
+#13.Write a program in Python to check a given year is leapyear or not.
+def is_leap_year(year):
+    if (year % 4 == 0):
+        if (year % 100 == 0):
+            if (year % 400 == 0):
+                return True  
+            else:
+                return False  
+        else:
+            return True 
+    else:
+        return False  
+year = int(input("Enter a year: "))
+if is_leap_year(year):
+    print(f"{year} is a leap year.")
+else:
+    print(f"{year} is not a leap year.")
+
+#14.Take marks of a student of four different subject find average depending on average find Grade(if marks >=75 i.e,’A’ or >=60 but <=75 i.e,’B’ or >=40 but <=60 i.e,’C’ or <=40 i.e,’D’).
+def calculate_grade(average):
+    if average >= 75:
+        return 'A'
+    elif average >= 60:
+        return 'B'
+    elif average >= 40:
+        return 'C'
+    else:
+        return 'D'
+subject1 = float(input("Enter marks for Subject 1: "))
+subject2 = float(input("Enter marks for Subject 2: "))
+subject3 = float(input("Enter marks for Subject 3: "))
+subject4 = float(input("Enter marks for Subject 4: "))
+average_marks = (subject1 + subject2 + subject3 + subject4) / 4
+grade = calculate_grade(average_marks)
+print(f"The average marks are: {average_marks:.2f}")
+print(f"The grade is: {grade}")
+
+#15.Write a program in Python to implement a simple calculator.
+def add(x, y):
+    return x + y
+def subtract(x, y):
+    return x - y
+def multiply(x, y):
+    return x * y
+def divide(x, y):
+    if y != 0:
+        return x / y
+    else:
+        return "Error: Division by zero is not allowed."
+def calculator():
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    choice = input("Enter choice (1/2/3/4): ")
+    if choice in ['1', '2', '3', '4']:
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+        if choice == '1':
+            print(f"The result of addition is: {add(num1, num2)}")
+        elif choice == '2':
+            print(f"The result of subtraction is: {subtract(num1, num2)}")
+        elif choice == '3':
+            print(f"The result of multiplication is: {multiply(num1, num2)}")
+        elif choice == '4':
+            print(f"The result of division is: {divide(num1, num2)}")
+    else:
+        print("Invalid input! Please select a valid operation.")
+calculator()
+
+#16.Write a program in Python to find the roots of Quadratic equation.
+import cmath  
+def find_roots(a, b, c):
+    discriminant = b**2 - 4*a*c
+    root1 = (-b + cmath.sqrt(discriminant)) / (2 * a)
+    root2 = (-b - cmath.sqrt(discriminant)) / (2 * a)
+    return root1, root2
+a = float(input("Enter coefficient a: "))
+b = float(input("Enter coefficient b: "))
+c = float(input("Enter coefficient c: "))
+if a == 0:
+    print("Coefficient a cannot be zero for a quadratic equation.")
+else:
+    root1, root2 = find_roots(a, b, c)
+    print(f"The roots of the quadratic equation are: {root1} and {root2}")
+
+#17.Write a program in Python to print 1 to n.
+def print_numbers_up_to_n(n):
+    for i in range(1, n + 1):
+        print(i)
+n = int(input("Enter a number: "))
+print_numbers_up_to_n(n)
+
+#18.Write a program in Python to print sum of natural number.
+def sum_of_natural_numbers(n):
+    total = 0
+    for i in range(1, n + 1):
+        total += i
+    return total
+n = int(input("Enter a number: "))
+sum_natural = sum_of_natural_numbers(n)
+print(f"The sum of natural numbers up to {n} is {sum_natural}.")
+
+#19.Write a program in Python to print Sum of Digit.
+def sum_of_digits(number):
+    num_str = str(number)
+    total_sum = 0
+    for char in num_str:
+        total_sum += int(char)
+    return total_sum
+number = int(input("Enter a number: "))
+result = sum_of_digits(number)
+print("Sum of digits:", result)
+
+#20.Write a program in Python to print Factors of a Number.
+def find_factors(number):
+    factors = []
+    for i in range(1, number + 1):
+        if number % i == 0:
+            factors.append(i)
+    return factors
+number = int(input("Enter a number: "))
+result = find_factors(number)
+print("Factors of", number, "are:", result)
+
+#21.Write a program in Python to print Reverse of a Number.
+def reverse_number(number):
+    num_str = str(number)
+    reversed_str = num_str[::-1]
+    reversed_num = int(reversed_str)
+    return reversed_num
+number = int(input("Enter a number: "))
+result = reverse_number(number)
+print("Reverse of the number:", result)
+
+#22.Write a Python program to find Factorial of a given number.
+def factorial(number):
+    result = 1
+    for i in range(1, number + 1):
+        result *= i
+    return result
+number = int(input("Enter a number: "))
+if number < 0:
+    print("Factorial does not exist for negative numbers.")
+else:
+    result = factorial(number)
+    print("Factorial of", number, "is:", result)
+
+#23.Write a Python program to check a number is palindrome or not.
+def is_palindrome(number):
+    num_str = str(number)
+    return num_str == num_str[::-1]
+number = int(input("Enter a number: "))
+if is_palindrome(number):
+    print(number, "is a palindrome.")
+else:
+    print(number, "is not a palindrome.")
+
+#24.Write a Python program to check a number is prime or not.
+def is_prime(number):
+    if number <= 1:
+        return False
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
+number = int(input("Enter a number: "))
+if is_prime(number):
+    print(number, "is a prime number.")
+else:
+    print(number, "is not a prime number.")
+
+#25.Write a Python program to check a number is Armstrong or not.
+def is_armstrong(number):
+    num_str = str(number)
+    num_digits = len(num_str)
+    sum_of_powers = sum(int(digit) ** num_digits for digit in num_str)
+    return sum_of_powers == number
+number = int(input("Enter a number: "))
+if is_armstrong(number):
+    print(number, "is an Armstrong number.")
+else:
+    print(number, "is not an Armstrong number.")
+
+#26.Write a Python program to print Fibonacci series of n term.
+def fibonacci_series(n):
+    fib_series = []
+    a, b = 0, 1
+    for _ in range(n):
+        fib_series.append(a)
+        a, b = b, a + b
+    return fib_series
+n = int(input("Enter the number of terms: "))
+result = fibonacci_series(n)
+print("Fibonacci series up to", n, "terms:")
+print(result)
+
+#27.Write a Python program to implement multiplication table.
+def multiplication_table(number, up_to):
+    for i in range(1, up_to + 1):
+        print(f"{number} x {i} = {number * i}")
+number = int(input("Enter the number for the multiplication table: "))
+up_to = int(input("Enter the range up to which you want the table: "))
+print(f"Multiplication table for {number} up to {up_to}:")
+multiplication_table(number, up_to)
+
+#28.Write a Python program to take a input from user in a list and print it.
+def get_user_input():
+    user_list = []
+    n = int(input("Enter the number of elements you want to input: "))
+    for _ in range(n):
+        element = input("Enter an element: ")
+        user_list.append(element)
+    return user_list
+user_list = get_user_input()
+print("The list you entered is:")
+print(user_list)
+
+#29.Write a Python program to find the average of n numbers using list.
+def calculate_average(numbers):
+    total_sum = sum(numbers)
+    count = len(numbers)
+    if count == 0:
+        return 0  
+    return total_sum / count
+n = int(input("Enter the number of elements: "))
+numbers = []
+for _ in range(n):
+    number = float(input("Enter a number: "))
+    numbers.append(number)
+average = calculate_average(numbers)
+print("The average of the entered numbers is:", average)
+
+#30.Write a Python program to find the largest element in the list.
+def find_largest(numbers):
+    if not numbers:
+        return None
+    largest = numbers[0]
+    for number in numbers:
+        if number > largest:
+            largest = number
+    return largest
+n = int(input("Enter the number of elements: "))
+numbers = []
+for _ in range(n):
+    number = float(input("Enter a number: "))
+    numbers.append(number)
+largest_number = find_largest(numbers)
+if largest_number is not None:
+    print("The largest element in the list is:", largest_number)
+else:
+    print("The list is empty.")
+
+#31.Write a Python program to perform Linear search.
+def linear_search(arr, target):
+    for index, value in enumerate(arr):
+        if value == target:
+            return index  
+    return -1  
+if _name_ == "_main_":
+    numbers = [10, 20, 30, 40, 50]
+    target = 30
+    result = linear_search(numbers, target)
+    if result != -1:
+        print(f"Element {target} found at index {result}.")
+    else:
+        print(f"Element {target} not found in the list.")
+
+#32.	Write a program that accepts sequence of lines as input and prints the lines after making all characters in the sentence capitalized.
+#Suppose the following input is supplied to the program:
+#Hello world
+#Practice makes perfect
+#Then, the output should be:
+#HELLO WORLD
+#PRACTICE MAKES PERFECT
+lines = []
+print("Enter lines of text (type 'end' to finish):")
+while True:
+    line = input()
+    if line.lower() == 'end':
+        break
+    lines.append(line)
+for line in lines:
+    print(line.upper())
+
+#33.	Write a program which accepts a sequence of comma‐separated numbers from console and generate a list and a tuple which contains every number.
+#Suppose the following input is supplied to the program:
+#34,67,55,33,12,98
+#Then, the output should be:
+#['34', '67', '55', '33', '12', '98']
+#('34', '67', '55', '33', '12', '98')
+input_numbers = input("Enter a sequence of comma-separated numbers: ")
+number_list = input_numbers.split(',')
+number_tuple = tuple(number_list)
+print(number_list)
+print(number_tuple)
+
+#34.	Write a program that computes the net amount of a bank account based a transaction log from console input. The transaction log format is shown as following:
+#D 100
+#W 200
+#¡
+#D means deposit while W means withdrawal.
+#Suppose the following input is supplied to the program:
+#D 300
+#D 300
+#W 200
+#D 100
+#Then, the output should be:
+#500
+def compute_net_amount():
+    net_amount = 0
+    while True:
+        transaction = input("Enter transaction (or '!' to end): ")
+        if transaction == '!':
+            break
+        operation, amount = transaction.split()
+        amount = int(amount)
+        if operation == 'D':
+            net_amount += amount
+        elif operation == 'W':
+            net_amount -= amount
+    print("Net amount:", net_amount)
+compute_net_amount()
+
+
